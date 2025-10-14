@@ -21,5 +21,10 @@ public class Main {
 
         Pi pi = () -> 3.1415;
         System.out.println("Pi value: " + pi.getPiValue());
+
+        System.out.println();
+
+        List<String> myList = List.of("1234", "hello", "87654321", "chocolate", "00000000000", "one");
+        System.out.println(LambdasStreamsDemo.sortByLength(myList));
     }
 }
