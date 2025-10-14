@@ -27,5 +27,11 @@ public class Main {
         List<String> myList = List.of("1234", "hello", "87654321", "chocolate", "00000000000", "one");
         System.out.println(LambdasStreamsDemo.sortByLength(myList, true));
         System.out.println(LambdasStreamsDemo.sortByLength(myList, false));
+
+        System.out.println();
+
+        Reverse reverse = (String s) -> new StringBuilder(s).reverse().toString();
+        String word = "hello";
+        System.out.println("'" + word + "' reversed is '" + reverse.reverse(word) + "'");
     }
 }
