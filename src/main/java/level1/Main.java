@@ -9,10 +9,17 @@ public class Main {
         System.out.println("Words containing 'o': " + LambdasStreamsDemo.getWordsContainingLetter(words, 'o'));
         System.out.println("Words containing 'o' and with more than 5 characters: " + LambdasStreamsDemo.getWordsContainingLetterWithMinLength(words, 'o', 6));
 
-        System.out.println("\nMonths (lambda):");
+        System.out.println();
+
+        System.out.println("Months (lambda):");
         List<String> months = List.of("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
         months.forEach(month -> System.out.println(month));
         System.out.println("\nMonths (method reference):");
         months.forEach(System.out::println);
+
+        System.out.println();
+
+        Pi pi = () -> 3.1415;
+        System.out.println("Pi value: " + pi.getPiValue());
     }
 }
