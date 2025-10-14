@@ -13,7 +13,8 @@ public class LambdasStreamsDemo {
         return words.stream().filter(w -> w.trim().toLowerCase().contains(Character.toString(c).toLowerCase()) && w.length() >= minLength).toList();
     }
 
-    public static List<String> sortByLength(List<String> words){
-        return words.stream().sorted(Comparator.comparingInt(String::length)).toList();
+    public static List<String> sortByLength(List<String> words, boolean ascending){
+        List<String> sortedList = words.stream().sorted(Comparator.comparingInt(String::length)).toList();
+        return ascending ? sortedList : sortedList.reversed();
     }
 }

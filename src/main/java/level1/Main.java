@@ -25,6 +25,7 @@ public class Main {
         System.out.println();
 
         List<String> myList = List.of("1234", "hello", "87654321", "chocolate", "00000000000", "one");
-        System.out.println(LambdasStreamsDemo.sortByLength(myList));
+        System.out.println(LambdasStreamsDemo.sortByLength(myList, true));
+        System.out.println(LambdasStreamsDemo.sortByLength(myList, false));
     }
 }
