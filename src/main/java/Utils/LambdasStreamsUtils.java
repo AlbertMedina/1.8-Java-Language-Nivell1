@@ -1,9 +1,9 @@
-package level1;
+package Utils;
 
 import java.util.Comparator;
 import java.util.List;
 
-public class LambdasStreamsDemo {
+public class LambdasStreamsUtils {
 
     public static List<String> getWordsContainingLetter(List<String> words, char c) {
         return words.stream().filter(w -> w.trim().toLowerCase().contains(Character.toString(c).toLowerCase())).toList();
