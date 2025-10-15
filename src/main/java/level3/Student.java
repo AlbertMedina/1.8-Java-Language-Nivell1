@@ -46,4 +46,9 @@ public class Student {
     public double getGrade() {
         return grade;
     }
+
+    @Override
+    public String toString() {
+        return "Name: " + name + ", age: " + age + ", course: " + course + ", grade: " + grade;
+    }
 }
