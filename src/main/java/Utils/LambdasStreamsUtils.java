@@ -1,5 +1,6 @@
 package Utils;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -25,5 +26,32 @@ public class LambdasStreamsUtils {
 
     public static String getOddEvenString(List<Integer> nums) {
         return nums.stream().map(n -> (n % 2 == 0 ? "e" : "o") + n).collect(Collectors.joining(", "));
+    }
+
+    public static List<String> getAlphabeticallySortedList(List<String> words) {
+        List<String> sortedList = new ArrayList<>(words);
+        sortedList.sort(Comparator.comparingInt(w -> Character.toLowerCase(w.charAt(0))));
+        return sortedList;
+    }
+
+    public static List<String> getCharacterFirstSortedList(List<String> words, char c) {
+        List<String> sortedList = new ArrayList<>(words);
+        sortedList.sort(Comparator.comparing(w -> !w.toLowerCase().contains(Character.toString(c).toLowerCase())));
+        return sortedList;
+    }
+
+    public static List<String> getCharacterReplaceList(List<String> words, char oldChar, char newChar) {
+        return words.stream().map(w -> w.replace(Character.toLowerCase(oldChar), newChar).replace(Character.toUpperCase(oldChar), newChar)).toList();
+    }
+
+    public static List<String> getNumericElementsList(List<String> words) {
+        return words.stream().filter(w -> {
+            try {
+                Double.parseDouble(w);
+                return true;
+            } catch (NumberFormatException e) {
+                return false;
+            }
+        }).toList();
     }
 }
