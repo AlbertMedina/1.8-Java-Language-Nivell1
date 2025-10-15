@@ -8,8 +8,8 @@ public class Main {
     public static void main(String[] args) {
 
         List<String> words = List.of("Hello", "HI", "GOODBYE", "Bye", "Chocolate", "Spot");
-        System.out.println("Words containing 'o': " + LambdasStreamsUtils.getWordsContainingLetter(words, 'o'));
-        System.out.println("Words containing 'o' and with more than 5 characters: " + LambdasStreamsUtils.getWordsContainingLetterWithMinLength(words, 'o', 6));
+        System.out.println("Words containing 'o': " + LambdasStreamsUtils.filterWordsContainingLetter(words, 'o'));
+        System.out.println("Words containing 'o' and with more than 5 characters: " + LambdasStreamsUtils.filterWordsWithMinLengthContainingLetter(words, 'o', 6));
 
         System.out.println();
 
@@ -27,8 +27,8 @@ public class Main {
         System.out.println();
 
         List<String> myList = List.of("1234", "hello", "87654321", "chocolate", "00000000000", "one");
-        System.out.println(LambdasStreamsUtils.sortByLength(myList, true));
-        System.out.println(LambdasStreamsUtils.sortByLength(myList, false));
+        System.out.println(LambdasStreamsUtils.getListSortedByLength(myList, true));
+        System.out.println(LambdasStreamsUtils.getListSortedByLength(myList, false));
 
         System.out.println();
 
