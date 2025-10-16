@@ -3,7 +3,8 @@ package level3;
 public class Main {
     public static void main(String[] args) {
 
-        StudentService studentService = new StudentService();
+        StudentRepository studentRepository = new StudentRepository();
+        StudentService studentService = new StudentService(studentRepository);
 
         studentService.addStudent("Albert", 25, "JAVA", 10);
         studentService.addStudent("Maria", 35, "PHP", 8);
