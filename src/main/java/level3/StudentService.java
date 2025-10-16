@@ -29,6 +29,21 @@ public class StudentService {
 
         System.out.println("Students whose name starts with 'A':");
         filterStudentsStartingWithLetter('A').forEach(System.out::println);
+
+        System.out.println();
+
+        System.out.println("Students with a grade of 5 or higher:");
+        filterStudentsWithMinGrade(5).forEach(System.out::println);
+
+        System.out.println();
+
+        System.out.println("PHP students with a grade of 5 or higher:");
+        filterStudentsWithMinGradeByCourse(5, "PHP").forEach(System.out::println);
+
+        System.out.println();
+
+        System.out.println("JAVA students with aged 18 or older:");
+        filterStudentsWithMinAgeByCourse(18, "JAVA").forEach(System.out::println);
     }
 
     private void addStudent(String name, int age, String course, double grade) {
@@ -47,5 +62,17 @@ public class StudentService {
 
     private List<Student> filterStudentsStartingWithLetter(char letter) {
         return studentsList.stream().filter(s -> Character.toLowerCase(s.getName().charAt(0)) == Character.toLowerCase(letter)).toList();
+    }
+
+    private List<Student> filterStudentsWithMinGrade(double grade) {
+        return studentsList.stream().filter(s -> s.getGrade() >= grade).toList();
+    }
+
+    private List<Student> filterStudentsWithMinGradeByCourse(double grade, String course) {
+        return studentsList.stream().filter(s -> s.getGrade() >= grade && s.getCourse().equalsIgnoreCase(course)).toList();
+    }
+
+    private List<Student> filterStudentsWithMinAgeByCourse(int age, String course) {
+        return studentsList.stream().filter(s -> s.getAge() >= age && s.getCourse().equalsIgnoreCase(course)).toList();
     }
 }
