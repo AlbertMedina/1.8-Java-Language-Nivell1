@@ -25,9 +25,9 @@ public class Student {
             throw new IllegalArgumentException("Invalid grade.");
         }
 
-        this.name = name;
+        this.name = name.trim();
         this.age = age;
-        this.course = course;
+        this.course = course.trim();
         this.grade = grade;
     }
 

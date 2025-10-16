@@ -1,15 +1,13 @@
 package level3;
 
+import Utils.LambdasStreamsUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class StudentService {
 
-    private List<Student> studentsList;
-
-    public StudentService() {
-        studentsList = new ArrayList<>();
-    }
+    private final List<Student> studentsList = new ArrayList<>();
 
     public void start() {
 
@@ -24,7 +22,13 @@ public class StudentService {
         addStudent("Quim", 22, "JAVA", 3);
         addStudent("Aina", 24, "PHP", 8.5);
 
-        studentsList.forEach(System.out::println);
+        System.out.println("Students names and ages:");
+        System.out.println(getStudentsNamesAndAges());
+
+        System.out.println();
+
+        System.out.println("Students whose name starts with 'A':");
+        filterStudentsStartingWithLetter('A').forEach(System.out::println);
     }
 
     private void addStudent(String name, int age, String course, double grade) {
@@ -33,5 +37,15 @@ public class StudentService {
         } catch (IllegalArgumentException e) {
             System.out.println("Error adding student: " + e.getMessage());
         }
+    }
+
+    private String getStudentsNamesAndAges() {
+        StringBuilder sb = new StringBuilder();
+        studentsList.forEach(s -> sb.append("Name: ").append(s.getName()).append(", age: ").append(s.getAge()).append("\n"));
+        return sb.toString();
+    }
+
+    private List<Student> filterStudentsStartingWithLetter(char letter) {
+        return studentsList.stream().filter(s -> Character.toLowerCase(s.getName().charAt(0)) == Character.toLowerCase(letter)).toList();
     }
 }
