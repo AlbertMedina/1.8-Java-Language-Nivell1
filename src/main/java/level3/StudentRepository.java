@@ -12,7 +12,7 @@ public class StudentRepository {
     }
 
     public List<Student> getStudents() {
-        return students;
+        return new ArrayList<>(students);
     }
 
     public void addStudent(Student student) {
