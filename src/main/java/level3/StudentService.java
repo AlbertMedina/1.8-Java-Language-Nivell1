@@ -4,6 +4,7 @@ import Utils.LambdasStreamsUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class StudentService {
 
@@ -55,9 +56,7 @@ public class StudentService {
     }
 
     private String getStudentsNamesAndAges() {
-        StringBuilder sb = new StringBuilder();
-        studentsList.forEach(s -> sb.append("Name: ").append(s.getName()).append(", age: ").append(s.getAge()).append("\n"));
-        return sb.toString();
+        return studentsList.stream().map(s -> "Name: " + s.getName() + ", age: " + s.getAge()).collect(Collectors.joining("\n"));
     }
 
     private List<Student> filterStudentsStartingWithLetter(char letter) {
