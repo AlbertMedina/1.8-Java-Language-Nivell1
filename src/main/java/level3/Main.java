@@ -4,7 +4,6 @@ public class Main {
     public static void main(String[] args) {
 
         StudentService studentService = new StudentService();
-        studentService.start();
 
         studentService.addStudent("Albert", 25, "JAVA", 10);
         studentService.addStudent("Maria", 35, "PHP", 8);
